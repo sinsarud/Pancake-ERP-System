@@ -1,22 +1,27 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './Login';
-import CheckIn from './CheckIn';
-import AdminMap from './AdminMap';
-import AdminDashboard from './AdminDashboard'; // 1. เพิ่มบรรทัดนี้
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import AuthPortal from "./AuthPortal";
+import Dashboard from "./Dashboard";
+import CheckIn from "./CheckIn";
+import AdminMap from "./AdminMap";
 
-function App() {
+export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
+        {/* หน้าแรกบังคับไป Login */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        
+        {/* หน้า Login สวยๆ ที่เพิ่งสร้าง */}
+        <Route path="/login" element={<AuthPortal />} />
+        
+        {/* หน้า Dashboard สีม่วง */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        
+        {/* หน้าลงเวลา (Timestamp) */}
         <Route path="/check-in" element={<CheckIn />} />
+        
         <Route path="/admin-map" element={<AdminMap />} />
-        {/* 2. เพิ่มเส้นทาง Dashboard */}
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
-
-export default App;
