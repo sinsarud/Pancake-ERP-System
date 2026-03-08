@@ -1,13 +1,14 @@
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
 
-  const { targetId, messageText } = req.body;
+  const { messageText } = req.body;
   
-  // 🟢 แก้ชื่อตัวแปรให้ตรงกับใน Vercel ของคุณ (VITE_LINE_ACCESS_TOKEN)
+  // 🟢 ดึง Token และ Admin ID จาก Vercel โดยตรง
   const token = process.env.VITE_LINE_ACCESS_TOKEN;
+  const targetId = process.env.VITE_LINE_ADMIN_ID; 
 
   if (!token || !targetId) {
-    return res.status(400).json({ error: 'Missing LINE token or targetId in Vercel Environment' });
+    return res.status(400).json({ error: 'ลืมใส่ Token หรือ Admin ID ใน Vercel' });
   }
 
   try {
@@ -25,10 +26,10 @@ export default async function handler(req, res) {
 
     const data = await response.json();
     
-    // ดักจับเผื่อ Token ผิด หรือส่งไม่ผ่าน
+    // ดักจับ Error จากฝั่ง LINE API
     if (!response.ok) {
        console.error("LINE API Error:", data);
-       return res.status(response.status).json({ error: 'LINE API Error', details: data });
+       return res.status(response.status).json({ error: data.message || 'LINE API Error', details: data });
     }
 
     res.status(200).json({ success: true, data });

@@ -3,6 +3,7 @@ import AuthPortal from "./AuthPortal";
 import Dashboard from "./Dashboard";
 import CheckIn from "./CheckIn";
 import AdminMap from "./AdminMap";
+import AttendanceHistory from './AttendanceHistory'; // 🟢 เพิ่มบรรทัดนี้ด้านบน
 
 export default function App() {
   return (
@@ -21,6 +22,8 @@ export default function App() {
         <Route path="/check-in" element={<CheckIn />} />
         
         <Route path="/admin-map" element={<AdminMap />} />
+
+        <Route path="/history" element={<AttendanceHistory />} /> {/* 🟢 เพิ่มบรรทัดนี้ในกลุ่ม Route */}
       </Routes>
     </BrowserRouter>
   );
