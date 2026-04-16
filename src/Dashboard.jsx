@@ -5936,18 +5936,7 @@ const executeRejectWithPopup = async (record, type, isLeave) => {
                                   });
                                   
                                   const apiKeys = [
-                                    "AIzaSyChW3OjwcoPW2X3AFeaV5OnOh28CY46fAU",
-                                    "AIzaSyA0Nd0GWjfkHyLOPCfSCsGIoE37qAjtCoI",
-                                    "AIzaSyBd68SxshIQxD8ZYYds_X_BC05ibN0p78M",
-                                    "AIzaSyDG1KVkbEihwZiubhLa1pqQWZQ74eDt21c",
-                                    "AIzaSyCUnIO2sdWTMsP2ZG12L4xv-5REiESUFFI",
-                                    "AIzaSyAt68effaiLr0Rzprp8hZD8IKpnTMBkSfc",
-                                    "AIzaSyBmP0w_ilXfvw6c6-z0lwst5tJ17abu0ZQ",
-                                    "AIzaSyBEiaslpm3aesxmqQlHGq8rTvU2nIAD1kg",
-                                    "AIzaSyBVA46verl1EN-QoL2s5wbmhbLqboGH9fU",
-                                    "AIzaSyAfZbE1eLdTJ8akbcmOsrjo5IOsNNC50Qs",
-                                    "AIzaSyDGDmdCNWXjHNt-GJwJ5Tli3XhXfDzvC6c",
-                                    "AIzaSyD2DQvNTsh3aU_Kfg1PUzuLzP_1k_zmEUU"
+                                   
                                   ];
                                   
                                   let extractedNumber = null;
